@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首頁 - 淡水觀光研究導航</title>
+    <link rel="icon" href="images/logo.ico" alt="淡水觀光研究導航標誌">
+    <!-- Core site stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Google Font for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="淡水觀光研究導航標誌">
+                    淡水觀光研究導航
+                </a>
+            </div>
+        <div class="container nav-wrapper">
+            
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link active">首頁</a></li>
+                    <li><a href="sitemap.html" class="nav-link">網站地圖</a></li>
+                    <li><a href="science-fair.html" class="nav-link">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html" class="nav-link">淡水觀光議題</a></li>
+                    <li><a href="field-research.html" class="nav-link">實地考察指引</a></li>
+                    <li><a href="resources.html" class="nav-link">工具箱與資源</a></li>
+                    <li><a href="about.html" class="nav-link">參考諮詢服務</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="開啟選單">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <p class="hero-tagline">Sunset, River, and Heritage</p>
+            <h1 class="hero-title">探索淡水觀光發展，看見地方文化與永續未來</h1>
+            <p class="hero-description">淡水，一座揉合歷史底蘊與河海美景的小鎮。當百萬遊客湧入，在帶來繁榮的同時，我們該如何面對背後的環境與社會代價？本平台旨在為中學生科展與小論文提供科學探究與理性思辨的基礎。</p>
+            <div class="hero-buttons">
+                <a href="#overview" class="btn btn-primary">探索統計數據</a>
+                <a href="#impacts" class="btn btn-secondary">觀看雙重效益分析</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Timer Banner (Educational Notice) -->
+    <div class="container countdown-container">
+        <div class="countdown-banner">
+            <div class="countdown-icon">
+                <i data-lucide="alarm-clock"></i>
+            </div>
+            <div class="countdown-content" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+                <strong class="countdown-label" style="font-size: 1.2rem; color: var(--harbor-blue);">科展倒數：</strong>
+                <span id="countdown-timer" class="countdown-time-display">載入倒數計時中...</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Impacts Section -->
+       <section class="news-list-container">
+        <div class="news-left">
+            <div class="bg-text">TOPICS</div>
+            <h2 class="news-title">核心探討議題</h2>
+            <a href="tamsui-topic.html" class="news-more-btn">⋙ 查看更多</a>
+        </div>
+
+        <div class="news-right">
+            <div class="news-item">
+                <div class="news-meta">01</div>
+                <div class="news-content">
+                    <h3><i data-lucide="trending-up" class="heading-icon"></i>經濟效益</h3>
+                    <p>商圈與產業發展探討。分析觀光帶來的稅收與就業對在地經濟和產業上的影響。</p>
+                </div>
+                <a href="tamsui-topic.html" class="news-btn">&gt; 深入解析</a>
+            </div>
+            
+            <div class="news-item">
+                <div class="news-meta">02</div>
+                <div class="news-content">
+                    <h3><i data-lucide="trees" class="heading-icon"></i>環境景觀</h3>
+                    <p>古蹟與觀光的平衡點。實地探查過度觀光可能對文化資產與景觀美感造成的損害。</p>
+                </div>
+                <a href="tamsui-topic.html" class="news-btn">&gt; 深入解析</a>
+            </div>
+
+            <div class="news-item">
+                <div class="news-meta">03</div>
+                <div class="news-content">
+                    <h3><i data-lucide="users" class="heading-icon"></i>社會文化</h3>
+                    <p>觀光客與在地居民的互動。研究負面效益如噪音、物價上漲，並透過訪談了解居民感受。</p>
+                </div>
+                <a href="tamsui-topic.html" class="news-btn">&gt; 深入解析</a>
+            </div>
+
+            <div class="news-item">
+                <div class="news-meta">04</div>
+                <div class="news-content">
+                    <h3><i data-lucide="tram" class="heading-icon"></i>大眾運輸</h3>
+                    <p>輕軌、台灣好行與交通動線。結合人流數據與統計，分析交通建設如何改變觀光客足跡。</p>
+                </div>
+                <a href="tamsui-topic.html" class="news-btn">&gt; 深入解析</a>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding reveal" id="impacts" style="background-color: rgba(255, 255, 255, 0.015);">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Double-Edged Sword of Tourism</span>
+                <h2 class="section-title">觀光效益與衝擊的雙重辯證</h2>
+            </div>
+            
+            <p class="impact-intro">觀光如同雙面刃，在帶來蓬勃地方經濟與文化資產能見度的同時，也伴隨著交通擁擠與環境破壞等負面衝擊。以下是社會科學科展研究中常見的雙重性探討面向：</p>
+
+            <div class="impact-dual-container">
+                <!-- Benefits column -->
+                <div class="card-glass impact-column">
+                    <h3 class="impact-column-title benefit">
+                        <i data-lucide="trending-up"></i> 觀光帶來的正面效益
+                    </h3>
+                    
+                    <div class="impact-item-list">
+                        <div class="impact-item">
+                            <div class="impact-icon-box">01</div>
+                            <div class="impact-item-content">
+                                <h4>地方經濟提振與就業機會</h4>
+                                <p>民宿、餐飲、手信業的興盛，直接帶動了在地產值，為青年創造返鄉就業與地方創生的機會。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">02</div>
+                            <div class="impact-item-content">
+                                <h4>文化資產維護與活化</h4>
+                                <p>觀光帶來的稅收與維護基金，有效促進了紅毛城、日本警官宿舍等古蹟的修復與文史推廣。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">03</div>
+                            <div class="impact-item-content">
+                                <h4>基礎建設的加速推動</h4>
+                                <p>為疏導龐大人潮，推動了捷運延伸規畫、金色水岸自行車道以及淡江大橋等重大公共建設。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">04</div>
+                            <div class="impact-item-content">
+                                <h4>城市品牌與國際能見度</h4>
+                                <p>淡水夕照與老街文化享譽海內外，成功塑造北台灣不可或缺的「歷史港口小鎮」國際觀光品牌。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Impacts column -->
+                <div class="card-glass impact-column">
+                    <h3 class="impact-column-title influence">
+                        <i data-lucide="alert-triangle"></i> 觀光帶來的負面衝擊
+                    </h3>
+                    
+                    <div class="impact-item-list">
+                        <div class="impact-item">
+                            <div class="impact-icon-box">01</div>
+                            <div class="impact-item-content">
+                                <h4>假日交通癱瘓與居民出行受阻</h4>
+                                <p>每逢假日中正路老街及捷運站周邊人車爭道、塞車嚴重，大幅降低在地居民的生活通勤品質。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">02</div>
+                            <div class="impact-item-content">
+                                <h4>垃圾激增與水岸生態干擾</h4>
+                                <p>遊客帶來的廢棄物增加清潔負擔，部分垃圾更流入河道，對珍貴的紅樹林濕地生態造成潛在威脅。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">03</div>
+                            <div class="impact-item-content">
+                                <h4>生活成本飆升與地價物價上漲</h4>
+                                <p>觀光商圈租金飆漲，間接反映在民生物資與小吃售價上，擠壓在地居民的日常實質生活水平。</p>
+                            </div>
+                        </div>
+
+                        <div class="impact-item">
+                            <div class="impact-icon-box">04</div>
+                            <div class="impact-item-content">
+                                <h4>過度商業化與在地特色稀釋</h4>
+                                <p>連鎖及外來商家進駐，排擠了傳統老店，且販售的商品同質性過高，削弱了淡水原有的獨特文化韻味。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Strategies Section -->
+    <section class="section-padding reveal" id="strategies">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Sustainable Tourism Strategies</span>
+                <h2 class="section-title">邁向永續發展的調適對策</h2>
+            </div>
+
+            <p class="strategy-intro">為了解決觀光發展帶來的環境與社會衝擊，學者、政府及民間組織提出了以下三大永續治理策略：</p>
+
+            <div class="strategy-tabs">
+                <button class="tab-btn active" data-tab="green">綠色交通與智慧分流</button>
+                <button class="tab-btn" data-tab="culture">文化深度旅遊轉型</button>
+                <button class="tab-btn" data-tab="eco">環境共生與公私協力</button>
+            </div>
+
+            <div class="card-glass strategy-container">
+                <!-- Tab 1 -->
+                <div class="tab-content active" id="tab-green">
+                    <div class="strategy-text">
+                        <h3>綠色交通與大眾運輸智慧分流</h3>
+                        <p>減少私人載具進入歷史老街核心區，是解決交通痛點的根本之道。透過大眾運輸與智慧引導降低交通碳排。</p>
+                        <div class="strategy-list">
+                            <div class="strategy-list-item"><strong>建立智慧停車引導系統</strong>：於外圍設立停車場，並提供即時接駁車資訊。</div>
+                            <div class="strategy-list-item"><strong>推廣低碳租借路網</strong>：整合 YouBike 與共享電動機車，打造綠色轉乘路廊。</div>
+                            <div class="strategy-list-item"><strong>人行步道路權調整</strong>：假日實施特定區段車輛管制，還路於民，提升行人安全。</div>
+                        </div>
+                    </div>
+                    <div class="strategy-image-box" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1549692520-acc6669e2f0c?auto=format&fit=crop&w=400&q=80');"></div>
+                </div>
+
+                <!-- Tab 2 -->
+                <div class="tab-content" id="tab-culture">
+                    <div class="strategy-text">
+                        <h3>擺脫速食旅遊：推廣深度文化體驗</h3>
+                        <p>引導遊客從擁擠的老街商圈走向山坡上的重建街、清水街，甚至延伸至淡水海關碼頭與周邊古蹟，發掘深度人文內涵。</p>
+                        <div class="strategy-list">
+                            <div class="strategy-list-item"><strong>在地故事導覽培訓</strong>：培育文史志工帶領遊客深入小巷，發掘淡水歷史故事。</div>
+                            <div class="strategy-list-item"><strong>工作坊與手作體驗</strong>：將淡水傳統手工藝、陶藝、以及在地食材融入遊程體驗。</div>
+                            <div class="strategy-list-item"><strong>民俗祭典品質升級</strong>：提升清水祖師得道繞境等在地慶典的觀光秩序與文化質感。</div>
+                        </div>
+                    </div>
+                    <div class="strategy-image-box" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1473163928189-364b2c4e1135?auto=format&fit=crop&w=400&q=80');"></div>
+                </div>
+
+                <!-- Tab 3 -->
+                <div class="tab-content" id="tab-eco">
+                    <div class="strategy-text">
+                        <h3>環境保護共生與公私協力監督</h3>
+                        <p>唯有健康的生態環境與幸福的在地社區，才能支撐起長遠的永續觀光。這需要政府、店家與大眾攜手守護環境。</p>
+                        <div class="strategy-list">
+                            <div class="strategy-list-item"><strong>推動綠色商家認證</strong>：鼓勵餐飲業者減少一次性餐具，落實減塑與垃圾分類。</div>
+                            <div class="strategy-list-item"><strong>河川生態守護志工</strong>：聯合學校與社區，定期進行金色水岸及紅樹林垃圾清理。</div>
+                            <div class="strategy-list-item"><strong>承載量管制研究</strong>：探討於特定脆弱古蹟區或生態區實施遊客總量管制的可行性。</div>
+                        </div>
+                    </div>
+                    <div class="strategy-image-box" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.45)), url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=400&q=80');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Toolbox Section (Educational Features from Current Page) -->
+    <section class="section-padding reveal" id="toolbox" style="background-color: rgba(255, 255, 255, 0.015);">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Research Toolbox</span>
+                <h2 class="section-title">科學探究與研究工具箱</h2>
+            </div>
+            
+            <div class="topics">
+                <a href="resources.html#thesaurus" class="topic-card-link">
+                    <div class="topic-card">
+                        <div class="toolbox-card-icon"><i data-lucide="book-open"></i></div>
+                        <h3>關鍵詞彙索引典</h3>
+                        <p>以「觀光」為核心，查找相關的廣義詞、狹義詞(如:永續觀光)與相關學術研究關鍵字。</p>
+                        <span class="toolbox-more-link">前往使用工具 →</span>
+                    </div>
+                </a>
+                <a href="resources.html#craap-section" class="topic-card-link">
+                    <div class="topic-card">
+                        <div class="toolbox-card-icon"><i data-lucide="check-square"></i></div>
+                        <h3>CRAAP 資訊評估</h3>
+                        <p>即時性、相關性、權威性、準確性與目的性，引導您篩選出具學術價值的文獻來源。</p>
+                        <span class="toolbox-more-link">前往使用工具 →</span>
+                    </div>
+                </a>
+                <a href="resources.html#data-sources" class="topic-card-link">
+                    <div class="topic-card">
+                        <div class="toolbox-card-icon"><i data-lucide="database"></i></div>
+                        <h3>開放數據資源</h3>
+                        <p>整理新北市政府開放平台、交通部觀光統計資料庫等官方且具信效度的數據入口。</p>
+                        <span class="toolbox-more-link">前往使用工具 →</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedback & Survey Section -->
+    <section class="section-padding reveal" id="feedback">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Interactive Discussion</span>
+                <h2 class="section-title">公眾意見與互動探討</h2>
+            </div>
+
+            <div class="feedback-grid">
+                <!-- Poll box -->
+                <div class="card-glass survey-box">
+                    <h3>
+                        <i data-lucide="vote" class="survey-title-icon"></i>
+                        您認為淡水觀光目前最急需改善的是？
+                    </h3>
+                    <p class="survey-hint">點擊下方選項即可投票，即時查看其他受訪者的觀點統計（資料保存在您的瀏覽器中）：</p>
+                    
+                    <div class="poll-option-list">
+                        <div class="poll-option" data-option="traffic">
+                            <div class="poll-progress-bar"></div>
+                            <span class="poll-text">假日交通塞車與人車爭道</span>
+                            <span class="poll-percent">0%</span>
+                        </div>
+                        <div class="poll-option" data-option="waste">
+                            <div class="poll-progress-bar"></div>
+                            <span class="poll-text">垃圾與河岸環境髒亂</span>
+                            <span class="poll-percent">0%</span>
+                        </div>
+                        <div class="poll-option" data-option="prices">
+                            <div class="poll-progress-bar"></div>
+                            <span class="poll-text">地價與生活物價偏高</span>
+                            <span class="poll-percent">0%</span>
+                        </div>
+                        <div class="poll-option" data-option="commercial">
+                            <div class="poll-progress-bar"></div>
+                            <span class="poll-text">店家同質性高、缺乏特色</span>
+                            <span class="poll-percent">0%</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-secondary" id="reset-poll-btn">重置投票數據</button>
+                </div>
+
+                <!-- Live Comments Box -->
+                <div class="card-glass comments-box">
+                    <h3>
+                        <i data-lucide="message-square" class="comments-title-icon"></i>
+                        發表您的觀點
+                    </h3>
+                    
+                    <form class="comment-form" id="comment-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="comment-name">暱稱 / 姓名</label>
+                                <input type="text" id="comment-name" class="form-control" placeholder="請輸入姓名" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment-identity">身分</label>
+                                <select id="comment-identity" class="form-control" required>
+                                    <option value="遊客">一般遊客</option>
+                                    <option value="在地居民">淡水在地居民</option>
+                                    <option value="業者">在地店家/業者</option>
+                                    <option value="學者/專家">文史/環保工作者</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comment-text">您的看法與建言</label>
+                            <textarea id="comment-text" class="form-control" placeholder="您認為觀光帶給淡水什麼效益或衝擊？該如何改善？" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit-comment">提交留言</button>
+                    </form>
+
+                    <h4 class="comments-list-title">留言板現況</h4>
+                    <div class="comment-list-container" id="comment-list">
+                        <!-- Dynamic comments will be appended here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Librarian Consultation Section -->
+    <section class="section-padding reveal" id="consultation-schedule-section" style="background-color: var(--bg-light); border-top: 1px solid #e2e8f0;">
+        <div class="container">
+            <div class="section-title-wrap">
+                <span class="section-subtitle">Librarian Reference Service</span>
+                <h2><i data-lucide="calendar" class="heading-icon"></i>館員參考資訊服務 (諮詢排班表)</h2>
+                <p style="color: #666; max-width: 700px; margin: 10px auto 0 auto; line-height: 1.8;">如需進行深度的文獻檢索指導或論文架構討論，歡迎參考以下服務時間，滑鼠游標移到儲存格上可看高亮顯示：</p>
+            </div>
+
+            <div class="callout-box orange" style="margin-bottom: 30px;">
+                <h4><i data-lucide="help-circle"></i> 諮詢輔導核心項目：</h4>
+                <p>研究主題聚焦與收斂、中外文權威學術資料庫上機操作教學、APA 7th 參考文獻格式引註疑難排解等。</p>
+            </div>
+
+            <div style="overflow-x: auto;">
+                <table class="consultation-table">
+                    <thead>
+                        <tr>
+                            <th>時段</th>
+                            <th>MON</th>
+                            <th>TUE</th>
+                            <th>WED</th>
+                            <th>THU</th>
+                            <th>FRI</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                             <td style="font-weight: bold; background: var(--bg-light); color: var(--harbor-blue);">10:00-12:00</td>
+                             <td>區文健</td>
+                             <td>李孟軒</td>
+                             <td>陳姵穎</td>
+                             <td>余欣桐</td>
+                             <td>簡偉城</td>
+                         </tr>
+                         <tr>
+                             <td style="font-weight: bold; background: var(--bg-light); color: var(--harbor-blue);">13:00-15:00</td>
+                             <td>王宇喬</td>
+                             <td>余欣桐</td>
+                             <td>區文健</td>
+                             <td>簡偉城</td>
+                             <td>陳姵穎</td>
+                         </tr>
+                         <tr>
+                             <td style="font-weight: bold; background: var(--bg-light); color: var(--harbor-blue);">15:00-17:00</td>
+                             <td>陳姵穎</td>
+                             <td>簡偉城</td>
+                             <td>李孟軒</td>
+                             <td>王宇喬</td>
+                             <td>區文健</td>
+                         </tr>
+                     </tbody>
+                 </table>
+                 <p style="text-align: center; font-size: 0.85rem; color: #888; margin-top: 15px;">* 詳細預約或變更，請以館方 Google 日曆公告為準。歡迎多加利用！</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>淡水地區觀光效益與影響探討</h4>
+                <p>本網站旨在人文與社會科學科展小論文研究指導，客觀呈現淡水在觀光大潮底下的效益與代價，並提供大眾一個理性思辨與發聲的空間。</p>
+            </div>
+            <div class="footer-links">
+                <h5>快速連結</h5>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="about.html">參考諮詢服務</a></li>
+                    <li><a href="science-fair.html">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html">淡水觀光議題</a></li>
+                    <li><a href="field-research.html">實地考察指引</a></li>
+                    <li><a href="resources.html">工具箱與資源</a></li>
+                    <li><a href="sitemap.html">網站地圖</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>參考資源來源</h5>
+                <ul>
+                    <li><a href="https://stat.motc.gov.tw" target="_blank" rel="noopener">交通部統計資訊網</a></li>
+                    <li><a href="https://www.taiwan.net.tw" target="_blank" rel="noopener">交通部觀光署</a></li>
+                    <li><a href="https://www.tourism.ntpc.gov.tw" target="_blank" rel="noopener">新北市觀光旅遊網</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>淡水觀光研究導航 © 2026 第六組 | 淡水地區觀光之效益與影響探討</p>
+        </div>
+    </footer>
+
+    <!-- Lucide Icons Script -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Global and Countdown JavaScript -->
+    <script src="js/global.js"></script>
+    <!-- Core main JavaScript file -->
+    <script src="js/main.js"></script>
+</body>
+</html>

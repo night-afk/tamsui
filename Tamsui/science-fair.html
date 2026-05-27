@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科展新手村 - 淡水觀光研究導航</title>
+    <link rel="icon" href="images/logo.ico" alt="淡水觀光研究導航標誌">
+    <!-- Core site stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Google Font for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Stepper and Flow styles for premium layout and high readability */
+        .flow-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 25px 0 30px 0;
+        }
+        
+        .flow-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            box-shadow: 0 4px 12px rgba(11, 60, 93, 0.02);
+            transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .flow-card:hover {
+            border-color: var(--twilight-orange);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(230, 126, 34, 0.08);
+        }
+        
+        .flow-card-num {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: rgba(11, 60, 93, 0.06);
+            font-family: 'Outfit', sans-serif;
+            transition: color 0.25s ease;
+        }
+        
+        .flow-card:hover .flow-card-num {
+            color: rgba(230, 126, 34, 0.15);
+        }
+        
+        .flow-card-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--harbor-blue);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .flow-card-content {
+            font-size: 0.88rem;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        .spec-card {
+            background: rgba(11, 60, 93, 0.02);
+            border: 1px solid rgba(11, 60, 93, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 18px;
+        }
+        
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 18px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid #edf2f7;
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--harbor-blue);
+            transition: all 0.2s ease;
+        }
+        
+        .spec-item:hover {
+            border-color: var(--harbor-blue);
+            transform: translateX(3px);
+            box-shadow: 0 4px 10px rgba(11, 60, 93, 0.04);
+        }
+        
+        /* Premium Vertical Step Timeline styles */
+        .vertical-timeline {
+            position: relative;
+            margin: 40px 0;
+            padding-left: 50px;
+        }
+        
+        .vertical-timeline::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            bottom: 10px;
+            left: 20px;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--harbor-blue) 0%, var(--twilight-orange) 100%);
+            border-radius: 2px;
+        }
+        
+        .timeline-step {
+            position: relative;
+            margin-bottom: 30px;
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            border-left: 5px solid var(--harbor-blue);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        .timeline-step:hover {
+            transform: translateX(6px);
+            box-shadow: 0 12px 25px rgba(11, 60, 93, 0.08);
+            border-left-color: var(--twilight-orange);
+        }
+        
+        .timeline-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .timeline-node {
+            position: absolute;
+            left: -46px;
+            top: 26px;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--harbor-blue);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            font-family: 'Outfit', sans-serif;
+            border: 3px solid var(--bg-light);
+            box-shadow: 0 2px 8px rgba(11, 60, 93, 0.12);
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-step:hover .timeline-node {
+            background: var(--twilight-orange);
+            transform: scale(1.15);
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.25);
+        }
+        
+        .timeline-step-title {
+            color: var(--harbor-blue);
+            margin: 0 0 15px 0;
+            font-size: 1.25rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: color 0.25s ease;
+        }
+        
+        .timeline-step:hover .timeline-step-title {
+            color: var(--twilight-orange);
+        }
+        
+        .timeline-step-content {
+            color: #4a5568;
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+        
+        .timeline-step-content ul {
+            padding-left: 20px;
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+        
+        .timeline-step-content li {
+            margin-bottom: 8px;
+        }
+        
+        @media (max-width: 768px) {
+            .flow-container {
+                grid-template-columns: 1fr;
+            }
+            .spec-grid {
+                grid-template-columns: 1fr;
+            }
+            .vertical-timeline {
+                padding-left: 40px;
+            }
+            .vertical-timeline::before {
+                left: 15px;
+            }
+            .timeline-node {
+                left: -37px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/logo.jpg" alt="淡水觀光研究導航標誌">
+                淡水觀光研究導航
+            </a>
+        </div>
+        <div class="container nav-wrapper">
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">首頁</a></li>
+                    <li><a href="sitemap.html" class="nav-link">網站地圖</a></li>
+                    <li><a href="science-fair.html" class="nav-link active">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html" class="nav-link">淡水觀光議題</a></li>
+                    <li><a href="field-research.html" class="nav-link">實地考察指引</a></li>
+                    <li><a href="resources.html" class="nav-link">工具箱與資源</a></li>
+                    <li><a href="about.html" class="nav-link">參考諮詢服務</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="開啟選單">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding: 50px 10%; background-color: var(--bg-light);">
+        <div class="breadcrumb-nav">
+            <div>
+                <a href="index.html">首頁</a> &gt; 科展新手村
+            </div>
+            <div>
+                <a href="javascript:history.back()">返回上一層</a>
+            </div>
+        </div>
+
+        <h1 style="color: var(--harbor-blue); border-bottom: 3px solid var(--twilight-orange); padding-bottom: 10px; margin-bottom: 35px;">科展新手村：研究素養介紹</h1>
+        
+        <div class="page-layout">
+            <!-- Sticky Sidebar Column -->
+            <div class="sidebar-wrapper">
+                <!-- Sidebar Countdown Widget -->
+                <div class="sidebar-countdown">
+                    <div class="sidebar-countdown-icon">
+                        <i data-lucide="alarm-clock"></i>
+                    </div>
+                    <div class="sidebar-countdown-label">科展倒數</div>
+                    <div id="countdown-timer" class="countdown-time">載入中...</div>
+                </div>
+                
+                <!-- Sidebar Nav Anchors -->
+                <div class="sidebar">
+                    <ul>
+                        <li><a href="#why-enter" class="sidebar-link active"><i data-lucide="lightbulb" class="list-icon"></i>為什麼做科展</a></li>
+                        <li><a href="#core-competencies" class="sidebar-link"><i data-lucide="brain" class="list-icon"></i>評審指標與權重</a></li>
+                        <li><a href="#four-stages" class="sidebar-link"><i data-lucide="refresh-cw" class="list-icon"></i>四階段研究流程</a></li>
+                        <li><a href="#timeline-checklist" class="sidebar-link"><i data-lucide="calendar" class="list-icon"></i>時程與檢核表</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Main Content Column -->
+            <div class="main-content">
+                <section class="village-intro" id="why-enter" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="lightbulb" class="heading-icon"></i>為什麼要做科展與科學研究？</h2>
+                    <p>
+                        臺灣國際科學展覽會 (<span class="text-highlight">TISF</span>) 是由教育部指導、國立臺灣科學教育館主辦的全國性頂尖學術競賽，旨在培養學生對科學事務之基本態度、方法與觀念，提升學生對科學研究之興趣。透過指導學生參與科展的歷程，改進教師科學教學方法及提升教學效果，普及科學知識、發揚科學精神，以增益國家科學教育之發展。在人文與社會學科領域中，我們學會用客觀、嚴謹的科學方法來拆解社會現象，發揮人文關懷的精神。
+                    </p>
+                    
+                    <div class="callout-box" style="margin-top: 25px;">
+                        <h4><i data-lucide="award"></i> 科展的真正價值</h4>
+                        <p>做科展不僅可以豐富自主學習歷程檔案，更能培養面對複雜問題時的解決能力。經由這些珍貴的學習歷程讓學生體會科展除了名次外，在過程中也能享受科學的趣味、結交到新朋友、甚或更加知道往後研究的方向等，這些都是人生中難得的豐碩經驗。</p>
+                    </div>
+
+                    <!-- 參展對象與資格規範 -->
+                    <h3 style="color: var(--harbor-blue); margin-top: 35px; border-left: 4px solid var(--twilight-orange); padding-left: 12px; margin-bottom: 20px;">參展對象與資格規範</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 30px;">
+                        <div class="card-glass" style="padding: 20px; border-top: 4px solid var(--harbor-blue);">
+                            <h4 style="color: var(--harbor-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <i data-lucide="user-check" style="color: var(--twilight-orange);"></i> 國內學生代表
+                            </h4>
+                            <ul style="font-size: 0.9rem; color: #555; padding-left: 18px; line-height: 1.7;">
+                                <li>具中華民國國籍，且年齡未滿 20 歲。</li>
+                                <li>國三、高中職一至三年級、五專前三年學生。</li>
+                                <li>國中一、二年級特殊科學才能學生可申請越級參加。</li>
+                                <li>實驗教育學生可由學籍學校或主管機關推薦。</li>
+                                <li>可個人或 2–3 人團隊（同校同教育階段）參加，每人限報 1 件。</li>
+                                <li style="color: #c0392b; font-weight: 500;">已進入大學者不得參展。</li>
+                            </ul>
+                        </div>
+                        <div class="card-glass" style="padding: 20px; border-top: 4px solid var(--twilight-orange);">
+                            <h4 style="color: var(--harbor-blue); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                <i data-lucide="globe" style="color: var(--harbor-blue);"></i> 國外學生代表
+                            </h4>
+                            <ul style="font-size: 0.9rem; color: #555; padding-left: 18px; line-height: 1.7;">
+                                <li>由科教館邀請之地區或國家參展。</li>
+                                <li>辦理科展活動較我國績優的地區國家、與我國有語系關係之地區國家及可交換各國辦理科展經驗之地區國家。</li>
+                                <li>須為該國家或地區科展優勝代表，且年齡未滿 20 歲之國三至高三（或大會認定之相等年級）在學學生。</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- 報名流程與作品規範 -->
+                    <h3 style="color: var(--harbor-blue); margin-top: 35px; border-left: 4px solid var(--twilight-orange); padding-left: 12px; margin-bottom: 20px;">參展報名流程（三步走計畫）</h3>
+                    <div class="flow-container">
+                        <div class="flow-card">
+                            <span class="flow-card-num">01</span>
+                            <div class="flow-card-title"><i data-lucide="monitor" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 線上系統申報</div>
+                            <div class="flow-card-content">學校於 10–11 月送件期間，至科教館科展資訊系統完成填寫、報名資料建檔並上傳相關電子檔案。</div>
+                        </div>
+                        <div class="flow-card">
+                            <span class="flow-card-num">02</span>
+                            <div class="flow-card-title"><i data-lucide="mail" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 寄送紙本審查</div>
+                            <div class="flow-card-content">將系統匯出之作品送展表與相關佐證資料寄送或送達科教館，進行第一階段的學術資格與文件審查。</div>
+                        </div>
+                        <div class="flow-card">
+                            <span class="flow-card-num">03</span>
+                            <div class="flow-card-title"><i data-lucide="file-check" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 備齊參賽文件</div>
+                            <div class="flow-card-content">需備齊三大要件：<br>1. 學校作品送展清冊一份、<br>2. 報名表一份、<br>3. 研究報告一份（含中英文摘要各約 350 字）。</div>
+                        </div>
+                    </div>
+
+                    <div class="spec-card">
+                        <h4 style="color: var(--harbor-blue); margin-top: 0; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+                            <i data-lucide="compass" style="color: var(--twilight-orange); width: 20px; height: 20px;"></i> 作品內容創作規範
+                        </h4>
+                        <p style="margin: 0; font-size: 0.9rem; color: #4a5568; line-height: 1.6;">
+                            作品必須為個人或同校同教育階段之團隊（2–3人）的原創性創作，內容且必須符合以下四大範疇之一，方可具備「行為與社會科學科」參展資格：
+                        </p>
+                        <div class="spec-grid">
+                            <div class="spec-item"><i data-lucide="shield-check" style="color: var(--twilight-orange); width: 16px; height: 16px;"></i> 行為與社會科學專題研究</div>
+                            <div class="spec-item"><i data-lucide="wrench" style="color: var(--twilight-orange); width: 16px; height: 16px;"></i> 科學技術與研究方法創新</div>
+                            <div class="spec-item"><i data-lucide="cpu" style="color: var(--twilight-orange); width: 16px; height: 16px;"></i> 科學儀器、模型或設備創作</div>
+                            <div class="spec-item"><i data-lucide="lightbulb" style="color: var(--twilight-orange); width: 16px; height: 16px;"></i> 地方社會問題解決之創新應用</div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="core-competencies" style="scroll-margin-top: 120px; margin: 40px 0;">
+                    <h2 style="color: var(--harbor-blue); border-left: 4px solid var(--twilight-orange); padding-left: 12px; margin-bottom: 20px;">行為與社會科學科 評審標準與審查指標</h2>
+                    <p style="color: #555; font-size: 0.95rem; margin-bottom: 25px;">
+                        在 TISF 中，針對「行為與社會科學」設有四大評審維度，用以科學化地審視作品的學術嚴謹度與社會應用價值：
+                    </p>
+                    
+                    <div style="overflow-x: auto; margin-bottom: 40px;">
+                        <table class="consultation-table" style="width: 100%; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--harbor-blue); color: white;">
+                                    <th style="width: 25%; padding: 12px;">評審指標與配比</th>
+                                    <th style="padding: 12px;">具體審查要點</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light); text-align: center;">研究主題 (20%)</td>
+                                    <td style="padding: 12px; line-height: 1.6; color: #555;">題目聚焦且明確、研究問題需具科學探究價值、題目可透過科學方法驗證、對該領域具有實質學術或應用貢獻。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light); text-align: center;">創意、學術或實用價值 (20%)</td>
+                                    <td style="padding: 12px; line-height: 1.6; color: #555;">研究具備原創性與獨特見解、方法具可行性、對社會、科學或地方經濟有深遠的潛在影響力與實用推廣潛力。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light); text-align: center;">科學方法適切性 (30%)</td>
+                                    <td style="padding: 12px; line-height: 1.6; color: #555;">設計完整的研究計畫（包含實驗組與控制組的變因控制）、系統化蒐集與分析數據、研究結果需可重複檢驗、統計分析方法適當、結論具備充足的證據與數據支持。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light); text-align: center;">展示與表達能力 (30%)</td>
+                                    <td style="padding: 12px; line-height: 1.6; color: #555;">三折說明板及書面報告邏輯清晰、圖表與圖例標示完整、能清楚簡潔且自信地回答評審提問、能充分理解研究限制、團隊成員均有實際貢獻且能提出未來研究方向。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 參展榮譽與獎勵說明 -->
+                    <h3 style="color: var(--harbor-blue); margin-top: 35px; border-left: 4px solid var(--twilight-orange); padding-left: 12px; margin-bottom: 20px;">參展榮譽與學生獎勵</h3>
+                    <div style="overflow-x: auto; margin-bottom: 40px;">
+                        <table class="consultation-table" style="width: 100%; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--harbor-blue); color: white;">
+                                    <th style="width: 25%; padding: 12px;">獎項類別</th>
+                                    <th style="width: 25%; padding: 12px;">選拔方式/名額</th>
+                                    <th style="padding: 12px;">學生獎勵與榮譽細節</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light);">青少年科學獎</td>
+                                    <td>從一等獎作品中再選出約 2 件</td>
+                                    <td style="line-height: 1.6; color: #555;">頒發獎座 1 座/件、獎金 5 萬元/件，每位作者獎狀 1 張。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light);">一等獎</td>
+                                    <td>各科約取 1 件</td>
+                                    <td style="line-height: 1.6; color: #555;">
+                                        <strong>若獲選國際代表：</strong>代表中華民國參加國際科展，獲牌 1 面、狀 1 張。<br>
+                                        <strong>若未入選國際代表：</strong>每件作品 1 萬元獎金、獲牌 1 面、狀 1 張。
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light);">二等獎 & 三等獎</td>
+                                    <td>二等獎約 1–2 件 / 三等獎約 1–3 件</td>
+                                    <td style="line-height: 1.6; color: #555;">代表中華民國參加國際科展（若獲選），或未入選者由大會頒發獎金與牌、狀榮譽。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light);">四等獎</td>
+                                    <td>各科若干件</td>
+                                    <td style="line-height: 1.6; color: #555;">大會頒發獎金 5 千元、每位作者獎狀 1 張。</td>
+                                </tr>
+                                <tr>
+                                    <td style="font-weight: bold; color: var(--harbor-blue); background: var(--bg-light);">共同榮譽</td>
+                                    <td>複審通過之國內外學生</td>
+                                    <td style="line-height: 1.6; color: #555;">
+                                        ● 所有通過複審的學生皆可獲得參展證書。<br>
+                                        ● 指導教師可獲獎狀、行政獎勵（一到三等獎指導老師可參加出國指導教師選拔）。<br>
+                                        ● 學校校長及學校本身也有行政獎勵與大會獎金。
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="four-stages" style="scroll-margin-top: 120px; margin: 50px 0 40px 0;">
+                    <h2 style="color: var(--harbor-blue); border-left: 4px solid var(--twilight-orange); padding-left: 12px; margin-bottom: 25px;">研究四階段流程與學術實務指引</h2>
+                    
+                    <div class="callout-box orange">
+                        <h4><i data-lucide="compass"></i> 循序漸進的探究地圖</h4>
+                        <p>一個成功的科展作品是由精細的步驟累積而成的。建議跟隨以下四個黃金階段進行，並與指導老師或館員保持緊密溝通。</p>
+                    </div>
+
+                    <div class="vertical-timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-node">1</div>
+                            <div class="timeline-step-title"><i data-lucide="search" style="width: 20px; height: 20px;"></i> 第一階段：題目探索（找到研究方向）</div>
+                            <div class="timeline-step-content">
+                                <ul>
+                                    <li><strong>確定感興趣的領域</strong>：從日常生活、課堂內容、地方衝突或個人興趣找尋切入點（例如從「淡水觀光」擴展到「永續旅遊」、「地方縉紳化」）。</li>
+                                    <li><strong>查重與學術定位</strong>：至科教館歷屆作品或華藝線上資料庫進行主題查重，避免重複研究，並發掘研究新意與後續探究的延伸空間。</li>
+                                    <li><strong>尋找指導老師</strong>：尋找專長符合研究領域的指導老師，共同討論題目可行性，規劃後續研究期程與實務資源。</li>
+                                    <li><strong>限縮範圍並聚焦假設</strong>：提出明確、可測量、可驗證的問題與假說（例如，研究問題：「觀光人潮增加是否導致垃圾清運量顯著提升？」研究假設：「觀光客人數的增加會提高景點垃圾量。」）。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="timeline-node">2</div>
+                            <div class="timeline-step-title"><i data-lucide="book-open" style="width: 20px; height: 20px;"></i> 第二階段：文獻回顧與設計（打下學術根基）</div>
+                            <div class="timeline-step-content">
+                                <ul>
+                                    <li><strong>廣泛閱讀與資料庫檢索</strong>：參考歷屆科展報告、圖書、政府統計開放數據與核心期刊，整理前人研究成果、侷限與尚未解決的空缺。</li>
+                                    <li><strong>撰寫研究計畫大綱</strong>：計畫書應包含研究背景與動機、研究目的、問題與假說、文獻架構、流程圖、預期效益、時程規劃及因應策略。</li>
+                                    <li><strong>設計研究方法與變因控制</strong>：選定適合的方法（文獻分析、實地觀察、問卷施測），確認自變因與控制變因，並建立標準研究日誌與實驗日誌格式。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="timeline-node">3</div>
+                            <div class="timeline-step-title"><i data-lucide="line-chart" style="width: 20px; height: 20px;"></i> 第三階段：資料蒐集與分析（實證研究過程）</div>
+                            <div class="timeline-step-content">
+                                <ul>
+                                    <li><strong>執行實地考察或調查</strong>：嚴格依計畫進行，如實記錄研究日誌（包含日期、具體工作、原始觀察數據、變數異動與修正措施），保留原始數據。</li>
+                                    <li><strong>維護資料誠信與科學日誌</strong>：保留所有原始問卷、訪談錄音與照片佐證，詳細記錄不可控的外部環境變數與異常現象。</li>
+                                    <li><strong>數據統計分析與視覺化</strong>：利用折線圖、長條圖、圓餅圖、散佈圖等描述性統計工具將數據視覺化，尋找並檢驗自變因與應變因的因果關係。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-step">
+                            <div class="timeline-node">4</div>
+                            <div class="timeline-step-title"><i data-lucide="award" style="width: 20px; height: 20px;"></i> 第四階段：報告撰寫與說明板設計（發表成果）</div>
+                            <div class="timeline-step-content">
+                                <ul>
+                                    <li><strong>編排正式作品說明書</strong>：遵循科展標準規範撰寫報告。內容需包含摘要（300字以內）、前言與研究動機、研究方法、結果與討論、結論與改善建言。</li>
+                                    <li><strong>落實 APA 引註格式與學術倫理</strong>：全書套用 APA 第七版格式，對書籍、學術論文、政府網站及自行拍攝之照片進行正確引註，防範抄襲。</li>
+                                    <li><strong>設計三折展示說明板</strong>：遵循大會標準規格（全幅寬 122 公分、高 120 公分，兩側各 61 公分），掌握一眼懂重點、圖表勝於純文字、重要數據放大、配色不超過 3 種主色等設計細節。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <hr style="border: 0; height: 1px; background: #E2E8F0; margin: 50px 0;">
+                
+                <section id="timeline-checklist" style="scroll-margin-top: 120px;">
+                    <h2 class="section-title" style="margin-bottom: 40px;">研究進度與自我檢核</h2>
+                    <div style="display: flex; flex-direction: column; gap: 30px; margin-bottom: 30px;">
+                        
+                        <div class="schedule-card">
+                            <h3><i data-lucide="calendar" class="heading-icon"></i>研究時程規劃</h3>
+                            <table class="modern-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%;">時程</th>
+                                        <th>階段任務</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="month-badge">11 月</span></td>
+                                        <td>第一階段：題目探索與確定領域</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="month-badge">12 月</span></td>
+                                        <td>第二階段：文獻回顧與研究計畫大綱擬定</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="month-badge">1 - 2 月</span></td>
+                                        <td>第三階段：資料蒐集、田野調查、實地訪談與觀察</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="month-badge">3 月</span></td>
+                                        <td>第三階段：整理分析結果與校內複賽準備</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="month-badge">4 月</span></td>
+                                        <td>第四階段：報告書面撰寫與三折展示說明板設計</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="checklist-card">
+                            <h3><i data-lucide="check-square" class="heading-icon"></i>學術倫理與規範檢核表</h3>
+                            <p style="font-size: 0.95rem; color: #718096; margin-bottom: 20px;">請在提交或進行調查前，進行最後的誠信檢核：</p>
+                            <div class="checklist-list">
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span>禁止抄襲仿製：作品是否由個人或團體親自創作，無抄襲他人成果？</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span>誠實揭露歷程：是否主動填報曾參加其他競賽紀錄，延續性研究附上前次資料？</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span>研究原始資料：是否已妥善保留研究日誌、實驗與訪談觀察原始紀錄供審查？</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span>問卷與訪談：是否均符合研究倫理與受訪者知情同意原則，保護隱私匿名？</span>
+                                </label>
+                                <label class="checklist-item">
+                                    <input type="checkbox">
+                                    <span>文獻引用：參考文獻與圖片是否均套用 APA 第七版 (APA 7th) 引註格式？</span>
+                                </label>
+                                <label class="checklist-item checklist-highlight">
+                                    <input type="checkbox">
+                                    <span>已備妥：三折說明板、書面報告摘要、研究日誌及著作權授權書</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>淡水地區觀光效益與影響探討</h4>
+                <p>本網站旨在人文與社會科學科展小論文研究指導，客觀呈現淡水在觀光大潮底下的效益與代價，並提供大眾一個理性思辨與發聲的空間。</p>
+            </div>
+            <div class="footer-links">
+                <h5>快速連結</h5>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="sitemap.html">網站地圖</a></li>
+                    <li><a href="science-fair.html">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html">淡水觀光議題</a></li>
+                    <li><a href="field-research.html">實地考察指引</a></li>
+                    <li><a href="resources.html">工具箱與資源</a></li>
+                    <li><a href="about.html">參考諮詢服務</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>參考資源來源</h5>
+                <ul>
+                    <li><a href="https://stat.motc.gov.tw" target="_blank" rel="noopener">交通部統計資訊網</a></li>
+                    <li><a href="https://www.taiwan.net.tw" target="_blank" rel="noopener">交通部觀光署</a></li>
+                    <li><a href="https://www.tourism.ntpc.gov.tw" target="_blank" rel="noopener">新北市觀光旅遊網</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>淡水觀光研究導航 © 2026 第六組 | 淡水地區觀光之效益與影響探討</p>
+        </div>
+    </footer>
+
+    <!-- Global and Countdown JavaScript -->
+    <script src="js/global.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
