@@ -1,0 +1,420 @@
+﻿<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>實地考察指引 - 淡水觀光研究導航</title>
+    <!-- Core site stylesheet -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Google Font for premium look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .glass-card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 30px; }
+        .glass-card h2 { color: var(--harbor-blue); border-bottom: 2.5px solid var(--twilight-orange); padding-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        
+        .route-map-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 20px; }
+        .route-tab-btn { background: transparent; border: 1px solid #ddd; padding: 10px 20px; cursor: pointer; border-radius: 6px; font-weight: 600; transition: all 0.3s; }
+        .route-tab-btn.active { background: var(--harbor-blue); color: white; border-color: var(--harbor-blue); }
+        
+        @media (max-width: 900px) {
+            .route-map-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header>
+                <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.jpg" alt="淡水觀光研究導航標誌">
+                    淡水觀光研究導航
+                </a>
+            </div>
+        <div class="container nav-wrapper">
+
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">首頁</a></li>
+                    <li><a href="sitemap.html" class="nav-link">網站地圖</a></li>
+                    <li><a href="science-fair.html" class="nav-link">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html" class="nav-link">淡水觀光議題</a></li>
+                    <li><a href="field-research.html" class="nav-link active">實地考察指引</a></li>
+                    <li><a href="resources.html" class="nav-link">工具箱與資源</a></li>
+                    <li><a href="about.html" class="nav-link">參考諮詢服務</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="開啟選單">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main style="padding: 50px 10%; background-color: var(--bg-light);">
+        
+        <div class="breadcrumb-nav" style="margin-bottom: 30px;">
+            <div><a href="index.html">首頁</a> > 實地考察指引</div>
+            <div><a href="javascript:history.back()">返回上一層</a></div>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h1 style="color: var(--harbor-blue);">實地考察與田野調查指引</h1>
+        </div>
+
+        <div class="page-layout">
+            
+            <!-- Sticky Sidebar Column -->
+            <aside class="sidebar-wrapper">
+                <!-- Sidebar Countdown Widget -->
+                <div class="sidebar-countdown">
+                    <div class="sidebar-countdown-icon">
+                        <i data-lucide="alarm-clock"></i>
+                    </div>
+                    <div class="sidebar-countdown-label">科展倒數</div>
+                    <div id="countdown-timer" class="countdown-time">載入中...</div>
+                </div>
+
+                <!-- Sidebar Nav Anchors -->
+                <div class="sidebar">
+                    <h3 style="color: var(--harbor-blue); margin-bottom: 15px; border-bottom: 1px solid #ddd; padding-bottom: 10px; font-size: 1.05rem;">快速跳轉</h3>
+                    <ul id="sidebar-menu">
+                        <li><a href="#ethics-guide" class="sidebar-link active"><i data-lucide="shield-alert" class="list-icon"></i>研究倫理防線</a></li>
+                        <li><a href="#survey-guide" class="sidebar-link"><i data-lucide="bar-chart-2" class="list-icon"></i>問卷調查取樣</a></li>
+                        <li><a href="#route-guide" class="sidebar-link"><i data-lucide="map" class="list-icon"></i>考察路線地圖</a></li>
+                        <li><a href="#field-notes" class="sidebar-link"><i data-lucide="file-text" class="list-icon"></i>訪談紀錄模板</a></li>
+                        <li><a href="#photo-guide" class="sidebar-link"><i data-lucide="camera" class="list-icon"></i>拍照佐證建議</a></li>
+                        <li><a href="#resources-tools" class="sidebar-link"><i data-lucide="wrench" class="list-icon"></i>參考圖資工具</a></li>
+                    </ul>
+                </div>
+            </aside>
+
+            <!-- Main Content Column -->
+            <div class="main-content">
+                
+                <!-- 研究倫理防線 -->
+                <section class="glass-card" id="ethics-guide" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="shield-alert" class="heading-icon"></i> 壹、學術研究倫理防線</h2>
+                    <p style="margin-bottom: 20px; color: #555;">在人文社會學科與行為學科的實證探究中，建立嚴格的「研究倫理防線」是重中之重。任何針對居民或遊客的街頭抽樣、訪談或行為觀察，皆須嚴格遵守以下三大研究倫理規範：</p>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px;">
+                        <div style="background: rgba(11,60,93,0.03); border: 1px solid rgba(11,60,93,0.08); padding: 15px; border-radius: 8px;">
+                            <h4 style="color: var(--harbor-blue); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                                <i data-lucide="user-check" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 知情同意原則 (Informed Consent)
+                            </h4>
+                            <p style="font-size: 0.82rem; color: #666; line-height: 1.6; margin: 0;">受訪者/受測者必須在完全理解研究目的、流程及潛在影響的前提下，自主、完全自願地決定是否參與本調查，嚴禁任何欺瞞或強迫行為。</p>
+                        </div>
+                        <div style="background: rgba(11,60,93,0.03); border: 1px solid rgba(11,60,93,0.08); padding: 15px; border-radius: 8px;">
+                            <h4 style="color: var(--harbor-blue); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                                <i data-lucide="lock" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 隱私匿名保護 (Anonymity)
+                            </h4>
+                            <p style="font-size: 0.82rem; color: #666; line-height: 1.6; margin: 0;">問卷及訪談報告書中，嚴禁公開透露受試者的姓名、電話等個資。使用去識別化代稱（如「居民 A 先生」、「老街店家 B 經理」），且照片若拍到路人清晰臉孔，必須進行模糊去識別化（馬賽克）處理。</p>
+                        </div>
+                        <div style="background: rgba(11,60,93,0.03); border: 1px solid rgba(11,60,93,0.08); padding: 15px; border-radius: 8px;">
+                            <h4 style="color: var(--harbor-blue); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px; font-size: 0.95rem;">
+                                <i data-lucide="alert-triangle" style="color: var(--twilight-orange); width: 18px; height: 18px;"></i> 誠實數據防線 (Data Integrity)
+                            </h4>
+                            <p style="font-size: 0.82rem; color: #666; line-height: 1.6; margin: 0;">嚴格遵守真實性，所有填答問卷、計數人流、環境髒亂照片及訪談口述紀錄，必須是田野考察真實所得，嚴禁任何仿製、捏造或篡改數據。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card" id="survey-guide" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="clipboard-check"></i> 貳、問卷調查指引與取樣規範</h2>
+                    <p style="margin-bottom: 25px; color: #555;">問卷調查屬於量化研究方法，旨在透過具代表性的樣本推估母體特徵。在進行淡水地區觀光效益與衝擊的施測時，請遵循以下學術規範：</p>
+                    
+                    <div class="callout-box">
+                        <h4><i data-lucide="help-circle"></i> 為什麼取樣很重要？</h4>
+                        <p>一個設計良好的問卷若沒有正確的發放對象，其統計結果將會毫無參考價值。切忌只在單一時間（如週六下午）或單一地點（如捷運站出口）發完所有問卷，這會導致極大的 <span class="text-highlight">時空取樣偏差</span>。</p>
+                    </div>
+
+                    <div class="subject-grid" style="margin-top: 25px;">
+                        <div class="subject-card">
+                            <h4 style="color: var(--harbor-blue); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                                <i data-lucide="target" style="color: var(--twilight-orange);"></i> 精準鎖定雙重對象
+                            </h4>
+                            <p style="font-size: 0.9rem; color: #666; line-height: 1.6; margin: 0;">
+                                本專題包含兩個核心對象：「觀光客」與「在地居民」。問卷必須分流設計，研究地方社會文化與環境衝擊時，受測者必須為 <span class="text-highlight">在地居民</span>，以免外來觀光客的短期感性高滿意度掩蓋了在地的真實生活痛點。
+                            </p>
+                        </div>
+                        <div class="subject-card">
+                            <h4 style="color: var(--harbor-blue); margin: 0 0 10px 0; display: flex; align-items: center; gap: 8px;">
+                                <i data-lucide="binary" style="color: var(--twilight-orange);"></i> 取樣數量與代表性
+                            </h4>
+                            <p style="font-size: 0.9rem; color: #666; line-height: 1.6; margin: 0;">
+                                建議有效回收問卷至少達 <span class="text-highlight">100 - 150 份</span>。請分散於平日、假日與不同熱點（如老街、重建街、輕軌沿線）發放，以捕捉不同時空下的遊客群像，提高統計研究的信效度與代表性。
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card" id="route-guide" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="map-pin"></i> 參、實地考察路線與互動地圖</h2>
+                    <p style="margin-bottom: 20px; color: #555;">我們特別規劃了兩條不同研究核心的「淡水實地考察路線」。點選下方路線按鈕，並點擊地圖上的站點以查看考察重點。</p>
+
+                    <div style="margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; display: flex; gap: 10px;">
+                        <button class="route-tab-btn active" data-route="A">路線 A：歷史文化與商業衝擊</button>
+                        <button class="route-tab-btn" data-route="B">路線 B：綠色交通與生態景觀</button>
+                    </div>
+
+                    <div class="route-map-grid">
+                        <div style="border: 1px solid #eee; border-radius: 8px; background: #fafafa; padding: 20px; display: flex; align-items: center; justify-content: center;">
+                            
+                            <svg id="svg-routeA" viewBox="0 0 500 300" style="width: 100%; height: auto; display: block;">
+                                <path d="M 50 150 Q 110 80 180 120 T 320 200 T 450 130" fill="none" stroke="#ddd" stroke-width="6" stroke-linecap="round" />
+                                <path d="M 50 150 Q 110 80 180 120 T 320 200 T 450 130" fill="none" stroke="var(--harbor-blue)" stroke-width="4" stroke-linecap="round" />
+                                
+                                <g class="svg-node active" data-index="0" data-route="A" style="cursor: pointer;">
+                                    <circle cx="50" cy="150" r="10" fill="white" stroke="var(--harbor-blue)" stroke-width="4" />
+                                    <circle cx="50" cy="150" r="4" fill="var(--twilight-orange)" />
+                                    <text x="50" y="180" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">捷運站</text>
+                                </g>
+                                <g class="svg-node" data-index="1" data-route="A" style="cursor: pointer;">
+                                    <circle cx="150" cy="100" r="10" fill="white" stroke="var(--harbor-blue)" stroke-width="4" />
+                                    <circle cx="150" cy="100" r="4" fill="var(--twilight-orange)" />
+                                    <text x="150" y="80" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">老街商圈</text>
+                                </g>
+                                <g class="svg-node" data-index="2" data-route="A" style="cursor: pointer;">
+                                    <circle cx="260" cy="130" r="10" fill="white" stroke="var(--harbor-blue)" stroke-width="4" />
+                                    <circle cx="260" cy="130" r="4" fill="var(--twilight-orange)" />
+                                    <text x="260" y="160" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">重建街</text>
+                                </g>
+                                <g class="svg-node" data-index="3" data-route="A" style="cursor: pointer;">
+                                    <circle cx="360" cy="190" r="10" fill="white" stroke="var(--harbor-blue)" stroke-width="4" />
+                                    <circle cx="360" cy="190" r="4" fill="var(--twilight-orange)" />
+                                    <text x="360" y="220" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">紅毛城</text>
+                                </g>
+                                <g class="svg-node" data-index="4" data-route="A" style="cursor: pointer;">
+                                    <circle cx="450" cy="130" r="10" fill="white" stroke="var(--harbor-blue)" stroke-width="4" />
+                                    <circle cx="450" cy="130" r="4" fill="var(--twilight-orange)" />
+                                    <text x="450" y="110" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">滬尾礮臺</text>
+                                </g>
+                            </svg>
+
+                            <svg id="svg-routeB" viewBox="0 0 500 300" style="width: 100%; height: auto; display: none;">
+                                <path d="M 50 200 Q 120 180 200 130 T 350 110 T 450 180" fill="none" stroke="#ddd" stroke-width="6" stroke-linecap="round" />
+                                <path d="M 50 200 Q 120 180 200 130 T 350 110 T 450 180" fill="none" stroke="var(--twilight-orange)" stroke-width="4" stroke-linecap="round" />
+                                
+                                <g class="svg-node active" data-index="0" data-route="B" style="cursor: pointer;">
+                                    <circle cx="50" cy="200" r="10" fill="white" stroke="var(--twilight-orange)" stroke-width="4" />
+                                    <circle cx="50" cy="200" r="4" fill="var(--harbor-blue)" />
+                                    <text x="50" y="230" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">紅樹林站</text>
+                                </g>
+                                <g class="svg-node" data-index="1" data-route="B" style="cursor: pointer;">
+                                    <circle cx="150" cy="170" r="10" fill="white" stroke="var(--twilight-orange)" stroke-width="4" />
+                                    <circle cx="150" cy="170" r="4" fill="var(--harbor-blue)" />
+                                    <text x="150" y="150" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">生態步道</text>
+                                </g>
+                                <g class="svg-node" data-index="2" data-route="B" style="cursor: pointer;">
+                                    <circle cx="260" cy="110" r="10" fill="white" stroke="var(--twilight-orange)" stroke-width="4" />
+                                    <circle cx="260" cy="110" r="4" fill="var(--harbor-blue)" />
+                                    <text x="260" y="90" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">輕軌沿線</text>
+                                </g>
+                                <g class="svg-node" data-index="3" data-route="B" style="cursor: pointer;">
+                                    <circle cx="360" cy="110" r="10" fill="white" stroke="var(--twilight-orange)" stroke-width="4" />
+                                    <circle cx="360" cy="110" r="4" fill="var(--harbor-blue)" />
+                                    <text x="360" y="140" text-anchor="middle" fill="#333" font-size="14" font-weight="bold">漁人碼頭</text>
+                                </g>
+                            </svg>
+                        </div>
+
+                        <div class="callout-box orange" style="margin: 0; display: flex; flex-direction: column; justify-content: center;">
+                            <span id="detail-tag" style="background: rgba(230, 126, 34, 0.1); color: var(--twilight-orange); font-size: 0.85rem; padding: 5px 12px; border-radius: 20px; font-weight: bold; align-self: flex-start; margin-bottom: 15px;">第一站</span>
+                            <h3 id="detail-title" style="font-size: 1.5rem; color: var(--harbor-blue); margin: 0 0 15px 0;">淡水捷運站</h3>
+                            <p id="detail-focus" style="font-size: 0.95rem; color: #555; line-height: 1.6; margin-bottom: 20px;">
+                                觀光門戶與交通節點。此處是人流進入淡水的主動脈，適合進行交通轉乘效率、遊客來訪動機問卷施測，以及觀察遊客出站後的動線流向。
+                            </p>
+                            <div style="border-top: 1px solid rgba(230, 126, 34, 0.15); padding-top: 15px;">
+                                <h5 style="color: var(--twilight-orange); font-size: 0.9rem; margin: 0 0 5px 0; display: flex; align-items: center; gap: 5px;">
+                                    <i data-lucide="check-circle" style="width: 16px; height: 16px;"></i> 建議調查方法
+                                </h5>
+                                <p id="detail-method" style="font-size: 0.9rem; color: #777; margin: 0;">街頭隨機抽樣問卷調查、轉乘大眾運輸工具之人流計數統計。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="glass-card" id="field-notes" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="file-text"></i> 肆、田野調查訪談紀錄模板與訪談大綱</h2>
+                    <p style="margin-bottom: 20px; color: #555;">深度質性訪談有助於理解在地社會結構與情感網絡。請於實地調查時攜帶以下第六組專用田野調查紀錄表：</p>
+                    
+                    <div style="background: #fdfcf7; border: 1px dashed var(--harbor-blue); padding: 25px; border-radius: 8px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #ddd; padding-bottom: 10px; margin-bottom: 15px;">
+                            <span style="background: var(--harbor-blue); color: white; padding: 4px 12px; border-radius: 4px; font-size: 0.85rem; font-weight: bold;">第六組 專用田野調查紀錄表</span>
+                            <span style="color: #666; font-size: 0.9rem;">編號：TW-2026-____</span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; font-size: 0.9rem; margin-bottom: 20px; color: #444;">
+                            <div><b>時間：</b>2026 年 ___ 月 ___ 日 (平日 / 假日)</div>
+                            <div><b>地點：</b>________________________</div>
+                            <div><b>訪談對象：</b> 在地店家 / 新興文創 / 外來企業 / 居民</div>
+                            <div><b>受訪者代稱：</b>___________ (如: 居民 A 先生，符合隱私保護規範)</div>
+                        </div>
+                        
+                        <h4 style="color: var(--twilight-orange); margin-bottom: 10px; border-bottom: 1px dashed #ccc; padding-bottom: 5px;">三大核心訪談題綱大綱與紀錄欄</h4>
+                        <ol style="padding-left: 20px; line-height: 2; font-size: 0.9rem; color: #555;">
+                            <li style="margin-bottom: 15px;">
+                                <strong>1. 經濟與商圈轉型感受：</strong>您在此地生活/經營多久了？觀光發展帶來的商機對您的實質生計，或是生活成本（房租租金、日常物價）帶來什麼衝擊？<br>
+                                <span style="color: #aaa; font-size: 0.85rem;">（紀錄欄：__________________________________________________________________）</span>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <strong>2. 環境景觀與美感衝擊：</strong>假日湧入的大量遊客人潮，對淡水河岸的垃圾清理壓力、金色水岸環境，或古蹟歷史建築的實體保存是否有造成實質破壞或髒亂影響？<br>
+                                <span style="color: #aaa; font-size: 0.85rem;">（紀錄欄：__________________________________________________________________）</span>
+                            </li>
+                            <li style="margin-bottom: 15px;">
+                                <strong>3. 社會網絡互動轉變：</strong>面對外來大型連鎖商家的進駐排擠，在地傳統老店與新興文創店、文史工作者之間的互動網絡關係有什麼調適或轉變？社群媒體打卡是如何改變淡水的觀光產業結構？<br>
+                                <span style="color: #aaa; font-size: 0.85rem;">（紀錄欄：__________________________________________________________________）</span>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+
+                <section class="glass-card" id="photo-guide" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="camera"></i> 伍、實地拍照佐證與時間/空間對比</h2>
+                    <p style="margin-bottom: 20px; color: #555;">真實的實地照片是小論文與科展成果說明板中最具說服力的客觀證據。建議採取以下三大對比維度來進行拍照記錄：</p>
+                    
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li style="margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: var(--bg-light); color: var(--harbor-blue); padding: 10px; border-radius: 50%;"><i data-lucide="layout"></i></div>
+                            <div>
+                                <strong style="color: var(--harbor-blue); font-size: 1.05rem;">1. 空間異質性對比 (Spatial Impact)</strong>
+                                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666; line-height: 1.6;">分別拍攝淡水「老街商業核心段」與「外圍邊緣段/重建街」的招牌密集度與商家類型；或是古蹟園區維護現況與受觀光衝擊（如金色水岸旁溢出的垃圾、老街違法違停）的空間對比，用以佐證觀光承載力的空間分布不均。</p>
+                            </div>
+                        </li>
+                        <li style="margin-bottom: 20px; display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: var(--bg-light); color: var(--twilight-orange); padding: 10px; border-radius: 50%;"><i data-lucide="clock"></i></div>
+                            <div>
+                                <strong style="color: var(--twilight-orange); font-size: 1.05rem;">2. 時間序列變化對比 (Temporal Impact)</strong>
+                                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666; line-height: 1.6;">在老街同一個定點，分別在「平日上午」、「假日下午」以及「節慶慶典活動期間（如煙火節/繞境）」拍攝對比照片，以視覺序列呈現遊客流量的劇烈高峰與環境瞬時衝擊。</p>
+                            </div>
+                        </li>
+                        <li style="display: flex; gap: 15px; align-items: flex-start;">
+                            <div style="background: var(--bg-light); color: #27ae60; padding: 10px; border-radius: 50%;"><i data-lucide="footprints"></i></div>
+                            <div>
+                                <strong style="color: #27ae60; font-size: 1.05rem;">3. 交通動線與綠色運輸足跡</strong>
+                                <p style="margin: 5px 0 0 0; font-size: 0.9rem; color: #666; line-height: 1.6;">記錄捷運站出口排隊狀況、輕軌轉乘人行道，YouBike 站點在假日的車輛調借動態，並在同一時段截圖 Google Maps 熱點路況，作為空間可達性與大眾運輸紓解交通成效的量化佐證。</p>
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+
+                <section class="glass-card" id="resources-tools" style="scroll-margin-top: 120px;">
+                    <h2><i data-lucide="wrench"></i> 陸、地理資訊地圖工具推薦</h2>
+                    <p style="margin-bottom: 20px; color: #555;">要將田野調查蒐集到的空間資料繪製成具說服力的科學地圖，我們強烈推薦使用以下免費的線上圖資工具：</p>
+                    <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem;">
+                        <tr style="background: var(--harbor-blue); color: white;">
+                            <th style="padding: 12px; border: 1px solid #ddd; width: 30%;">推薦工具與連結</th>
+                            <th style="padding: 12px; border: 1px solid #ddd;">在實地考察中的學術運用方式</th>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--harbor-blue);">Google My Maps (我的地圖)</td>
+                            <td style="padding: 12px; border: 1px solid #ddd; color: #555;">極適合中學生快速上手！您可以將實地訪談的店家位置、垃圾溢出觀測點、或遊客足跡的分布點標記於地圖上，繪製成直觀的專題空間分布圖。</td>
+                        </tr>
+                        <tr style="background: #f9f9f9;">
+                            <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold; color: var(--harbor-blue);">TGOS 地理資訊圖資雲入口網</td>
+                            <td style="padding: 12px; border: 1px solid #ddd; color: #555;">由內政部主辦的權威地理資訊雲。可以獲取精確的官方 GIS 底圖資料（如古蹟核心管制區範圍、淡水河歷年水系、都市計畫土地利用圖），做更深度的空間地理資訊疊加與關聯性分析。</td>
+                        </tr>
+                    </table>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <!-- Footer -->    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-info">
+                <h4>淡水地區觀光效益與影響探討</h4>
+                <p>本網站旨在人文與社會科學科展小論文研究指導，客觀呈現淡水在觀光大潮底下的效益與代價，並提供大眾一個理性思辨與發聲的空間。</p>
+            </div>
+            <div class="footer-links">
+                <h5>快速連結</h5>
+                <ul>
+                    <li><a href="index.html">首頁</a></li>
+                    <li><a href="sitemap.html">網站地圖</a></li>
+                    <li><a href="science-fair.html">科展新手村</a></li>
+                    <li><a href="tamsui-topic.html">淡水觀光議題</a></li>
+                    <li><a href="field-research.html">實地考察指引</a></li>
+                    <li><a href="resources.html">工具箱與資源</a></li>
+                    <li><a href="about.html">參考諮詢服務</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>參考資源來源</h5>
+                <ul>
+                    <li><a href="https://stat.motc.gov.tw" target="_blank" rel="noopener">交通部統計資訊網</a></li>
+                    <li><a href="https://www.taiwan.net.tw" target="_blank" rel="noopener">交通部觀光署</a></li>
+                    <li><a href="https://www.tourism.ntpc.gov.tw" target="_blank" rel="noopener">新北市觀光旅遊網</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>淡水觀光研究導航 © 2026 第六組 | 淡水地區觀光之效益與影響探討</p>
+        </div>
+    </footer>
+
+    <!-- Global and Countdown JavaScript -->
+    <script src="js/global.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+
+        // 互動地圖資料庫
+        const mapData = {
+            A: [
+                { title: "淡水捷運站", tag: "第一站", focus: "觀光門戶與交通節點。此處是人流進入淡水的主動脈，適合進行交通轉乘效率、遊客來訪動機問卷施測，以及觀察遊客出站後的動線流向。", method: "街頭隨機抽樣問卷調查、轉乘大眾運輸工具之人流計數統計。" },
+                { title: "老街商圈", tag: "第二站", focus: "商業核心與歷史街區。觀察傳統店家與外來連鎖企業的空間分佈，評估過度商業化對在地文化的衝擊。", method: "空間異質性拍照紀錄、店家經營現況質性訪談。" },
+                { title: "重建街", tag: "第三站", focus: "淡水第一街。分析歷史巷弄在觀光熱潮中的保存現況，以及居民對於大量觀光客湧入的真實感受。", method: "在地居民深度訪談、噪音與環境承載量評估。" },
+                { title: "紅毛城", tag: "第四站", focus: "核心文化資產。評估大量遊客踩踏對古蹟建築體的耗損，以及導覽動線規劃是否完善。", method: "文化資產保護現況拍照、CRAAP 資訊評估對照。" },
+                { title: "滬尾礮臺", tag: "第五站", focus: "邊緣觀光區。對比核心區（老街）與邊緣區（礮臺）的遊客密度差異，分析空間分佈的不均衡現象。", method: "時間序列變化對比拍照、Google Maps 熱點打卡分析。" }
+            ],
+            B: [
+                { title: "紅樹林站", tag: "第一站", focus: "輕軌轉乘起點。觀察遊客選擇捷運或轉乘輕軌的決策比例，評估綠色運輸的推廣成效。", method: "交通動線人流統計、轉乘意願問卷調查。" },
+                { title: "生態步道", tag: "第二站", focus: "自然生態保留區。探討生態旅遊與自然環境保護之間的平衡點，是否有垃圾遺留或生態干擾破壞。", method: "生態承載量觀察、環境衝擊拍照佐證。" },
+                { title: "輕軌沿線", tag: "第三站", focus: "交通建設影響。分析輕軌通車後是否帶動沿線新興商圈的發展，或是僅作為通過性交通工具。", method: "GIS 空間分析、沿線店家訪談。" },
+                { title: "漁人碼頭", tag: "第四站", focus: "夜間觀光與節慶熱點。對比平日與假日（或煙火節慶時）的人流爆發式增長，以及衍生的交通壅塞問題。", method: "時間序列變化對比拍照、特殊慶典人流大數據分析。" }
+            ]
+        };
+
+        // 綁定路線切換按鈕
+        document.querySelectorAll('.route-tab-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // 處理按鈕 Active 樣式
+                document.querySelectorAll('.route-tab-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+
+                // 處理 SVG 切換
+                const route = e.target.getAttribute('data-route');
+                document.getElementById('svg-routeA').style.display = route === 'A' ? 'block' : 'none';
+                document.getElementById('svg-routeB').style.display = route === 'B' ? 'block' : 'none';
+
+                // 自動點擊該路線的第一個節點以更新資訊面板
+                document.querySelector(`#svg-route${route} .svg-node[data-index="0"]`).dispatchEvent(new Event('click'));
+            });
+        });
+
+        // 綁定 SVG 節點點擊事件
+        document.querySelectorAll('.svg-node').forEach(node => {
+            node.addEventListener('click', (e) => {
+                // 處理節點 Active 樣式
+                const currentRoute = node.getAttribute('data-route');
+                document.querySelectorAll(`#svg-route${currentRoute} .svg-node`).forEach(n => n.classList.remove('active'));
+                node.classList.add('active');
+
+                // 更新右側資訊面板
+                const index = node.getAttribute('data-index');
+                const data = mapData[currentRoute][index];
+                
+                document.getElementById('detail-tag').innerText = data.tag;
+                document.getElementById('detail-title').innerText = data.title;
+                document.getElementById('detail-focus').innerText = data.focus;
+                document.getElementById('detail-method').innerText = data.method;
+            });
+        });
+    </script>
+</body>
+</html>
